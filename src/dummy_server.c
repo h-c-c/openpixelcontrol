@@ -18,11 +18,11 @@ void handler(u8 channel, u16 count, pixel* pixels) {
   char* sep = " =";
   printf("-> channel %d: %d pixel%s", channel, count, count == 1 ? "" : "s");
   for (i = 0; i < count; i++) {
-    if (i >= 4) {
+    printf("%s %02x %02x %02x", sep, pixels[i].r, pixels[i].g, pixels[i].b);
+    if (i == count - 1)  {
       printf(", ...");
       break;
     }
-    printf("%s %02x %02x %02x", sep, pixels[i].r, pixels[i].g, pixels[i].b);
     sep = ",";
   }
   printf("\n");
